@@ -211,6 +211,9 @@ export default {
       this.userId = id
       await this.$refs.assignRole.getUserInfoById(id)
       this.showRoleDialog = true
+    },
+    checkPermission(){
+      
     }
   }
 }

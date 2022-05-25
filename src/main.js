@@ -16,6 +16,7 @@ import * as directives from '@/directives'
 import * as filters from './filters'
 import Print from 'vue-print-nb'
 import checkPermission from '@/mixin/checkPermission'
+import i18n from '@/lang'
 
 import '@/icons' // icon
 import '@/permission' // permission control
@@ -30,9 +31,12 @@ import '@/permission' // permission control
  */
 
 // set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
+// Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
+Vue.use(ElementUI, {
+  i18n: (key, value) => i18n.t(key)
+})
 
 // 自定义指令
 Object.keys(directives).forEach((key) => {
@@ -56,6 +60,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  i18n,
   store,
   render: (h) => h(App)
 })
